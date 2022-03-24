@@ -3,6 +3,8 @@ create table employees(
 	id serial primary key, employee_Name varchar(50) not null
 );
  
+
+
 ---Создать таблицу salary. С параметрами : id, monthly_salary.
 create table salary(
 	id serial primary key,
@@ -22,6 +24,8 @@ create table roles(
 	id serial primary key,
 	role_name int unique not null
 );
+
+
 
 ---Заполнить таблицу employees 70 строками.
 insert into employees(employee_Name)
@@ -97,6 +101,18 @@ values(N'Кондратьев Ипат Федотович'),
 	(N'Субботин Панкратий Зиновьевич'),
 	(N'Самойлов Стоян Дмитриевич');
 
+insert into employees(employee_Name)
+values (' '),
+	(' '),
+	(' '),
+	(' '),
+	(' '),
+	(' '),
+	(' '),
+	(' '),
+	(' '),
+	(' ');
+
 ---Наполнить таблицу salary 15 строками.
 insert into salary(monthly_salary)
 values(1000),
@@ -165,8 +181,9 @@ values (1, 2),
 alter table roles
 alter column role_name type varchar(30) using role_name::varchar(30);
 
----Наполнить таблицу roles 20 строками.
 
+
+---Наполнить таблицу roles 20 строками.
 insert into roles(role_name)
 values ('Junior Python developer'),
 	('Middle Python developer'),
@@ -204,6 +221,109 @@ create table roles_employee(
 	references roles(id)
 );
 
+create table salart_of_employee(
+	id serial primary key,
+	emloyee_id int not null unique,
+	salary_id int not null,
+	foreign key (emloyee_id)
+	references employees(id),
+	foreign key (salary_id)
+	references salary(id) 
+);
+
+
+
+insert into salary(monthly_salary)
+values (0);
+
+insert into salart_of_employee(emloyee_id, salary_id)
+values (31, 18),
+	(32, 18),
+	(33, 18),
+	(34, 18),
+	(35, 18),
+	(36, 18),
+	(37, 18),
+	(38, 18),
+	(39, 18),
+	(40, 18),
+	(41, 18),
+	(42, 18),
+	(43, 18),
+	(44, 18),
+	(45, 18),
+	(46, 18),
+	(47, 18),
+	(48, 18),
+	(49, 18),
+	(50, 18),
+	(51, 18),
+	(52, 18),
+	(53, 18),
+	(54, 18),
+	(55, 18),
+	(56, 18),
+	(57, 18),
+	(58, 18),
+	(59, 18),
+	(60, 18),
+	(61, 18),
+	(62, 18),
+	(63, 18),
+	(64, 18),
+	(65, 18),
+	(66, 18),
+	(67, 18),
+	(68, 18),
+	(69, 18),
+	(70, 18);
+
+select * from salary;
+select * from employees;
+
+insert into salart_of_employee(emloyee_id, salary_id)
+values (72, 3),
+	(73, 5),
+	(74, 11),
+	(75, 8),
+	(76, 6),
+	(77, 15),
+	(78, 2),
+	(79, 4),
+	(80, 7),
+	(81, 10);
+insert into salart_of_employee(emloyee_id, salary_id)
+values (1, 2),
+	(2, 5),
+	(3, 10),
+	(4, 15),
+	(5, 4),
+	(6, 3),
+	(7, 5),
+	(8, 9),
+	(9, 15),
+	(11, 7),
+	(12, 12),
+	(13, 14),
+	(14, 13),
+	(16, 8),
+	(18, 13),
+	(19, 2),
+	(20, 5),
+	(22, 8),
+	(23, 9),
+	(24, 5),
+	(26, 14),
+	(27, 14),
+	(28, 6),
+	(30, 9),
+	(29, 1),
+	(21, 13),
+	(15, 12),
+	(10, 11),
+	(17, 5),
+	(25, 15);
+
 ---Наполнить таблицу roles_employee 40 строками.
 insert into roles_employee(employee_id, role_id)
 values (1, 5),
@@ -226,7 +346,7 @@ values (1, 5),
 	(40, 11),
 	(52, 14);
 
-select * from roles_employee;
-
+select * from salart_of_employee;
+show tables from qa_ddl_26_19
 
 
